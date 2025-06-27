@@ -17,21 +17,47 @@
 
 <body class="font-sans text-gray-800 bg-white">
 
-  <!-- Navigation -->
-  <header class="bg-blue-800 text-white shadow sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
-      <a href="#accueil" class="flex items-center space-x-2">
-  <img src="Images/Logo sans remove bg.jpg" alt="Logo ENEANTECH" class="h-20 w-auto">
-  <span class="text-2xl font-bold text-white">ENEANTECH</span>
-</a>
-      <nav class="space-x-6 text-sm font-medium">
-        <a href="#accueil" class="hover:text-gray-300">Accueil</a>
-        <a href="#apropos" class="hover:text-gray-300">À propos</a>
-        <a href="#services" class="hover:text-gray-300">Services</a>
-        <a href="#contact" class="hover:text-gray-300">Contact</a>
-      </nav>
-    </div>
-  </header>
+ <!-- Navigation responsive avec logo + menu burger -->
+<header class="bg-blue-800 text-white shadow sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+    <a href="#accueil" class="flex items-center space-x-2">
+      <img src="Images/logo-eneantech.png" alt="Logo ENEANTECH" class="h-10 w-auto">
+      <span class="text-2xl font-bold text-white">ENEANTECH</span>
+    </a>
+    <!-- Menu burger (mobile) -->
+    <button id="menu-toggle" class="md:hidden focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+    <!-- Menu desktop -->
+    <nav class="hidden md:flex space-x-6 text-sm font-medium">
+      <a href="#accueil" class="hover:text-gray-300">Accueil</a>
+      <a href="#apropos" class="hover:text-gray-300">À propos</a>
+      <a href="#services" class="hover:text-gray-300">Services</a>
+      <a href="#contact" class="hover:text-gray-300">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Menu mobile -->
+  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2">
+    <a href="#accueil" class="block text-white hover:text-gray-300">Accueil</a>
+    <a href="#apropos" class="block text-white hover:text-gray-300">À propos</a>
+    <a href="#services" class="block text-white hover:text-gray-300">Services</a>
+    <a href="#contact" class="block text-white hover:text-gray-300">Contact</a>
+  </div>
+</header>
+
+<!-- Script JS pour menu mobile -->
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
 
   <!-- Hero -->
   <section id="accueil" class="bg-blue-50 py-20">
