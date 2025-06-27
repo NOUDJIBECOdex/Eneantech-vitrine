@@ -121,6 +121,274 @@
       </div>
     </div>
   </section>
+<!-- Formulaire de devis connecté avec Formspree + confirmation visuelle -->
+<section id="devis" class="bg-gradient-to-b from-white to-blue-50 py-24">
+  <div class="max-w-4xl mx-auto px-6 shadow-lg rounded-lg bg-white p-10" data-aos="fade-up">
+    <h3 class="text-4xl font-bold text-center text-blue-800 mb-10">Demande de devis</h3>
+
+    <form id="devis-form" action="https://formspree.io/f/TON_ENDPOINT_ICI" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label class="block mb-2 text-sm font-semibold text-gray-700">👤 Nom complet</label>
+        <input name="Nom complet" type="text" required placeholder="Ex : Noudjibé" class="w-full px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none" />
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm font-semibold text-gray-700">📧 Adresse e-mail</label>
+        <input name="Email" type="email" required placeholder="exemple@email.com" class="w-full px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none" />
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm font-semibold text-gray-700">🛠 Type de service</label>
+        <select name="Service" class="w-full px-4 py-3 rounded border border-gray-300 bg-white focus:ring-2 focus:ring-blue-500 outline-none">
+          <option>Développement Web</option>
+          <option>Cybersécurité</option>
+          <option>Cloud Computing</option>
+          <option>Cloud Computing</option>
+          <option>IA & Automatisation</option>
+          <option>Formation Excel / IT</option>
+          <option>Formation Gestion de Projet </option>
+          <option>Formation Logiciels de Comptabilités</option>
+          <option>Formation Microsoft Office</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm font-semibold text-gray-700">💰 Budget estimatif</label>
+        <input name="Budget" type="text" placeholder="Ex : 100 000 FCFA" class="w-full px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none" />
+      </div>
+
+      <div class="md:col-span-2">
+        <label class="block mb-2 text-sm font-semibold text-gray-700">📝 Décrivez votre besoin</label>
+        <textarea name="Message" rows="4" placeholder="Décrivez votre projet ici..." class="w-full px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+      </div>
+
+      <div class="md:col-span-2 text-center mt-4">
+        <button type="submit" class="bg-blue-700 hover:bg-blue-900 text-white font-semibold px-8 py-3 rounded-lg shadow-md transition">📤 Envoyer ma demande</button>
+      </div>
+    </form>
+
+    <!-- Message de confirmation -->
+    <div id="success-message" class="hidden mt-6 text-green-600 text-center text-lg font-semibold animate-pulse">
+      ✅ Merci pour votre demande ! Nous vous répondrons très vite.
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('devis-form');
+  const successMsg = document.getElementById('success-message');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      form.reset();
+      successMsg.classList.remove('hidden');
+    }
+  });
+</script>
+
+  
+<!-- Bloc témoignages -->
+<section id="temoignages" class="bg-gray-100 py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-blue-800 text-center mb-12" data-aos="fade-up">
+      Ce que disent nos clients
+    </h3>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <!-- Témoignage 1 -->
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+        <p class="text-gray-700 italic mb-4">"Grâce à ENEANTECH, notre entreprise a pu lancer son site web en un temps record. Service rapide, pro et humain."</p>
+        <div class="flex items-center gap-4">
+          <img src="https://img.icons8.com/ios-filled/50/4a90e2/user-male-circle.png" alt="Client 1" class="w-10 h-10 rounded-full" />
+          <div>
+            <p class="font-semibold text-gray-800">Alain D.</p>
+            <p class="text-sm text-gray-500">CEO - AlphaCom</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Témoignage 2 -->
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200">
+        <p class="text-gray-700 italic mb-4">"J’ai suivi leur formation sur la cybersécurité, c’était très enrichissant. Je recommande à tous les jeunes développeurs !"</p>
+        <div class="flex items-center gap-4">
+          <img src="https://img.icons8.com/ios-filled/50/4a90e2/user-female-circle.png" alt="Client 2" class="w-10 h-10 rounded-full" />
+          <div>
+            <p class="font-semibold text-gray-800">Fatima N.</p>
+            <p class="text-sm text-gray-500">Étudiante en IT</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Témoignage 3 -->
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="300">
+        <p class="text-gray-700 italic mb-4">"Leur équipe nous a accompagnés dans notre transition digitale. Professionnels, passionnés et très à l’écoute."</p>
+        <div class="flex items-center gap-4">
+          <img src="https://img.icons8.com/ios-filled/50/4a90e2/user-male-circle.png" alt="Client 3" class="w-10 h-10 rounded-full" />
+          <div>
+            <p class="font-semibold text-gray-800">Jules K.</p>
+            <p class="text-sm text-gray-500">Manager - TchadTech</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline ENEANTECH -->
+<section id="timeline" class="bg-white py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-blue-800 text-center mb-12" data-aos="fade-up">
+      Notre parcours
+    </h3>
+
+    <div class="relative border-l-4 border-blue-800 pl-6 space-y-12">
+      <!-- Étape 1 -->
+      <div data-aos="fade-up" data-aos-delay="100">
+        <h4 class="text-xl font-semibold text-blue-800">2022 - Création de ENEANTECH</h4>
+        <p class="text-gray-700">Née de la passion pour la technologie et l'innovation numérique, ENEANTECH a vu le jour au cœur de l'Afrique.</p>
+      </div>
+
+      <!-- Étape 2 -->
+      <div data-aos="fade-up" data-aos-delay="200">
+        <h4 class="text-xl font-semibold text-blue-800">2023 - Lancement de nos services</h4>
+        <p class="text-gray-700">Nous avons proposé nos premiers services : développement web, cybersécurité, cloud computing, IA.</p>
+      </div>
+
+      <!-- Étape 3 -->
+      <div data-aos="fade-up" data-aos-delay="300">
+        <h4 class="text-xl font-semibold text-blue-800">2024 - Formations et accompagnements</h4>
+        <p class="text-gray-700">Nous avons formé plus de 300 jeunes dans le numérique et soutenu 10 startups locales.</p>
+      </div>
+
+      <!-- Étape 4 -->
+      <div data-aos="fade-up" data-aos-delay="400">
+        <h4 class="text-xl font-semibold text-blue-800">2025 et au-delà</h4>
+        <p class="text-gray-700">Nous visons l’expansion en Afrique francophone, et le lancement de notre premier programme IA éthique.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pourquoi nous choisir -->
+<section id="choisir" class="bg-blue-50 py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-blue-800 text-center mb-12" data-aos="fade-up">
+      Pourquoi choisir ENEANTECH ?
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-lg shadow" data-aos="zoom-in">
+        <h4 class="text-lg font-semibold text-blue-700 mb-2">Expertise locale</h4>
+        <p class="text-gray-700">Nous comprenons les réalités africaines et adaptons nos solutions au contexte local.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="100">
+        <h4 class="text-lg font-semibold text-blue-700 mb-2">Innovation continue</h4>
+        <p class="text-gray-700">Nous intégrons constamment les nouvelles technologies pour booster la productivité de nos clients.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="200">
+        <h4 class="text-lg font-semibold text-blue-700 mb-2">Accompagnement humain</h4>
+        <p class="text-gray-700">Nous plaçons l’humain au cœur de nos services, avec une écoute attentive et une approche personnalisée.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section Blog améliorée -->
+<section id="blog" class="bg-gray-100 py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-4xl font-bold text-center text-blue-800 mb-12" data-aos="fade-up">Blog & Astuces numériques</h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Article 1 -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-up">
+        <img src="Images/Cybersecurité2.png" class="w-full h-48 object-cover" alt="Cybersécurité">
+        <div class="p-6">
+          <h4 class="text-xl font-semibold text-blue-700 mb-2">🔐 5 erreurs en cybersécurité</h4>
+          <p class="text-gray-600 text-sm mb-4">Les pratiques à éviter pour sécuriser vos données en 2025.</p>
+          <a href="#" class="text-blue-600 text-sm font-medium hover:underline">Lire plus →</a>
+        </div>
+      </div>
+
+      <!-- Article 2 -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-up" data-aos-delay="100">
+        <img src="Images/Excel.jpg" class="w-full h-48 object-cover" alt="Excel">
+        <div class="p-6">
+          <h4 class="text-xl font-semibold text-blue-700 mb-2">📊 Excel en 2025</h4>
+          <p class="text-gray-600 text-sm mb-4">Pourquoi Excel reste un outil central en entreprise ?</p>
+          <a href="#" class="text-blue-600 text-sm font-medium hover:underline">Lire plus →</a>
+        </div>
+      </div>
+
+      <!-- Article 3 -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition" data-aos="fade-up" data-aos-delay="200">
+        <img src="Images/Startup2.png" class="w-full h-48 object-cover" alt="Startup Tech">
+        <div class="p-6">
+          <h4 class="text-xl font-semibold text-blue-700 mb-2">🚀 Lancer sa startup tech</h4>
+          <p class="text-gray-600 text-sm mb-4">Comment démarrer un projet tech en Afrique avec peu de moyens ?</p>
+          <a href="#" class="text-blue-600 text-sm font-medium hover:underline">Lire plus →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bouton Voir tous les articles avec animation -->
+<div class="text-center mt-12" data-aos="fade-up" data-aos-delay="300">
+  <a href="blog.html" class="inline-block bg-blue-700 text-white font-semibold px-8 py-3 rounded-full shadow hover:bg-blue-900 transition duration-300 animate-bounce" onclick="showLoader()">
+    📚 Voir tous les articles
+  </a>
+</div>
+
+<script>
+  function showLoader() {
+    // Ici tu peux déclencher une animation ou un loader si tu veux
+    console.log("Chargement du blog...");
+  }
+</script>
+  </div>
+</section>
+
+
+<!-- Notre équipe -->
+<section id="equipe" class="bg-white py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-blue-800 text-center mb-12" data-aos="fade-up">
+      L'équipe ENEANTECH
+    </h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <!-- Membre 1 -->
+      <div class="text-center" data-aos="fade-up">
+        <img src="https://img.icons8.com/ios-filled/100/4a90e2/user-male-circle.png" alt="CEO" class="mx-auto rounded-full w-24 h-24 mb-4" />
+        <h4 class="font-semibold text-blue-700">Mbaihilamde Noudjibé</h4>
+        <p class="text-sm text-gray-600">Fondateur & Directeur Technique</p>
+      </div>
+
+      <!-- Membre 2 -->
+      <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://img.icons8.com/ios-filled/100/4a90e2/user-female-circle.png" alt="CM" class="mx-auto rounded-full w-24 h-24 mb-4" />
+        <h4 class="font-semibold text-blue-700">Fatimé Zara</h4>
+        <p class="text-sm text-gray-600">Responsable communication</p>
+      </div>
+
+      <!-- Membre 3 -->
+      <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://img.icons8.com/ios-filled/100/4a90e2/user-male-circle.png" alt="dev" class="mx-auto rounded-full w-24 h-24 mb-4" />
+        <h4 class="font-semibold text-blue-700">Agbo Martin</h4>
+        <p class="text-sm text-gray-600">Co-Fondateur & Développeur Full-Stack</p>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- Contact -->
   <section id="contact" class="bg-white py-20">
@@ -144,6 +412,20 @@
   </a>
 </div>
   </section>
+
+  <!-- Partenaires & Certifications -->
+<section id="partenaires" class="bg-gray-100 py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-blue-800 text-center mb-12" data-aos="fade-up">Nos partenaires & reconnaissances</h3>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+      <img src="Images/C-2M-CONSULTING..jpg" alt="C-2M CONSULTIN" class="w-28" data-aos="zoom-in" />
+      <img src="Images/ISPROF-MAROUA.jpg" alt="ISP¨ROF MAROUA-CAMEROUN" class="w-24" data-aos="zoom-in" data-aos-delay="100" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/UNDP_logo.svg/200px-UNDP_logo.svg.png" alt="RMD" class="w-24" data-aos="zoom-in" data-aos-delay="200" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/ITU_Logo.svg/200px-ITU_Logo.svg.png" alt="UIT" class="w-24" data-aos="zoom-in" data-aos-delay="300" />
+    </div>
+  </div>
+</section>
 
   <!-- Footer responsive ENEANTECH -->
 <footer class="bg-blue-800 text-white text-center py-8 mt-10">
