@@ -37,6 +37,7 @@
       <a href="#apropos" class="hover:text-gray-300">À propos</a>
       <a href="#services" class="hover:text-gray-300">Services</a>
       <a href="#contact" class="hover:text-gray-300">Contact</a>
+      <a href="formations.html" class="hover:text-gray-300">Nos Formations</a>
     </nav>
   </div>
 
@@ -484,6 +485,39 @@
       <img src="Images/ISPROF-MAROUA.jpg" alt="ISP¨ROF MAROUA-CAMEROUN" class="w-24" data-aos="zoom-in" data-aos-delay="100" />
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/UNDP_logo.svg/200px-UNDP_logo.svg.png" alt="RMD" class="w-24" data-aos="zoom-in" data-aos-delay="200" />
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/ITU_Logo.svg/200px-ITU_Logo.svg.png" alt="UIT" class="w-24" data-aos="zoom-in" data-aos-delay="300" />
+    </div>
+  </div>
+</section>
+
+<!-- Formulaire d'inscription ENEANTECH -->
+<section id="inscription" class="bg-white py-16">
+  <div class="max-w-xl mx-auto px-6" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-center text-blue-800 mb-8">📨 Inscription à une formation</h2>
+
+    <form action="https://formspree.io/f/TON_ENDPOINT_ICI" method="POST" class="space-y-4 bg-gray-50 p-6 rounded-lg shadow">
+      <input type="text" name="nom" placeholder="Nom complet" required class="w-full p-3 border border-gray-300 rounded" />
+      <input type="email" name="email" placeholder="Adresse e-mail" required class="w-full p-3 border border-gray-300 rounded" />
+      
+      <select name="formation" required class="w-full p-3 border border-gray-300 rounded">
+        <option value="">-- Sélectionnez une formation --</option>
+        <option>Graphisme & Design</option>
+        <option>Développement Web</option>
+        <option>Développement Mobile</option>
+        <option>Intelligence Artificielle</option>
+        <option>Cybersécurité</option>
+        <option>Excel & Bureautique</option>
+        <option>Entrepreneuriat Digital</option>
+        <option>No-code & Automatisation</option>
+      </select>
+
+      <textarea name="message" rows="4" placeholder="Message ou question (facultatif)" class="w-full p-3 border border-gray-300 rounded"></textarea>
+      
+      <button type="submit" class="w-full bg-blue-700 text-white py-3 rounded hover:bg-blue-900 transition">✅ Je m’inscris</button>
+    </form>
+
+    <!-- Message de confirmation -->
+    <div id="confirmation" class="hidden text-center mt-6 text-green-600 font-semibold">
+      ✅ Votre inscription a bien été envoyée !
     </div>
   </div>
 </section>
